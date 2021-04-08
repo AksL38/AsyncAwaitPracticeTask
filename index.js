@@ -7,7 +7,7 @@ async function renderRandomImage() {
     try {
         let wordData = await fetch(randomWordUri)
         let word = await wordData.json();
-        let giphyData = await fetch(giphyUri1 + word + giphyUri2);
+        let giphyData = await fetch(giphyUri1 + word[0] + giphyUri2);
         let imageObj = await giphyData.json();
         if (imageObj.data.length === 0) {
             renderRandomImage();
